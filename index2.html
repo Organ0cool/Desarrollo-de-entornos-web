@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="text-align:center; font-family: Arial, sans-serif;">
+  <h2>Ejemplo de Audio Automatico</h2>
+  <p>Haz clic en cualquier parte de la pagina y el audio sonara automaticamente</p>
+
+    <audio id="miAudio">
+    <source src="/videoshtml/PXNDXaudio.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+    <script>
+    // Cuando el usuario haga el primer clic, se reproduce el audio
+    document.addEventListener("click", () => {
+      const audio = document.getElementById("miAudio");
+      audio.play().catch(error => {
+        console.log("El navegador bloque�� el autoplay:", error);
+      });
+    }, { once: true }); // solo se ejecuta una vez
+  </script>
+</body>
+</html>
